@@ -206,7 +206,7 @@ If NO-AUTO-INCREMENT is non-nil the signature will not be incremented."
   "Retrieves the current buffer's signature and creates a variation of that signature.
 VARIATION specifies how to modify the signature, FILE a file to use instead of the current buffer.
 Return string."
-  (let* ((file (or file (buffer-file-name)))
+  (let* ((file (or file (buffer-file-name) (dired-get-filename)))
 	 (signature (denote-fz-retrieve-filename-signature file)))
     (denote-fz-string-variation signature variation)))
 
